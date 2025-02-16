@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "title": "Arnold ",
+    "price": 50,
+    "image": "../Products/Arnold.png"
+  },
+
+  { "id": 2, "title": "Bird ", "price": 60, "image": "../Products/Bird.png" },
+  { "id": 3, "title": "Boat ", "price": 70, "image": "../Products/Boat.png" },
+  {
+    "id": 4,
+    "title": "HalfFace 4",
+    "price": 80,
+    "image": "../Products/HalfFace.png"
+  },
+  { "id": 5, "title": "Koi", "price": 90, "image": "../Products/Koi.png" },
+  {
+    "id": 6,
+    "title": "Martini",
+    "price": 100,
+    "image": "../Products/Martini.png"
+  },
+  {
+    "id": 7,
+    "title": "Phoenix",
+    "price": 110,
+    "image": "../Products/Phoenix.png"
+  },
+  { "id": 8, "title": "Ohrid", "price": 120, "image": "../Products/Ohrid.png" },
+  { "id": 9, "title": "Rose", "price": 130, "image": "../Products/Rose.png" },
+  { "id": 10, "title": "Snake", "price": 140, "image": "../Products/Snake.png" }
+]

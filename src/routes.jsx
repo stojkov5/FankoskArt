@@ -5,6 +5,7 @@ import Products from "./pages/Products.jsx";
 import Contact from "./pages/Contact.jsx";
 import Cart from "./pages/Cart.jsx";
 
+
 const routes= createBrowserRouter([
     {
         path: "/",
@@ -26,6 +27,8 @@ const routes= createBrowserRouter([
                 path: "/cart",
                 element: <Cart />,
             },
+            
+            
         ],
     }
 ]);
