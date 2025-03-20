@@ -3,31 +3,378 @@
     "id": 1,
     "title": "Arnold ",
     "price": 50,
-    "image": "../Products/Arnold.png"
+    "image": "../Products/Arnold.png",
+    "description": "Arnold- Мотивациска слика на бодибилдер и цитат за успех.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
   },
 
-  { "id": 2, "title": "Bird ", "price": 60, "image": "../Products/Bird.png" },
-  { "id": 3, "title": "Boat ", "price": 70, "image": "../Products/Boat.png" },
+  {
+    "id": 2,
+    "title": "Bird ",
+    "price": 60,
+    "image": "../Products/Bird.png",
+    "description": "Colorful Songbird - a vibrant image of a bird on a branch with vibrant colors and metallic details",
+    "height": "60cm",
+    "width": "40cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 3,
+    "title": "Sailboat ",
+    "price": 70,
+    "image": "../Products/Boat.png",
+    "description": "Sailboat - we can't direct the wind, but we can adjust the sails.",
+    "height": "80cm",
+    "width": "40cm",
+    "technique": "Acrylic Paint on canvas"
+  },
   {
     "id": 4,
     "title": "HalfFace 4",
     "price": 80,
     "image": "../Products/HalfFace.png"
   },
-  { "id": 5, "title": "Koi", "price": 90, "image": "../Products/Koi.png" },
+  {
+    "id": 5,
+    "title": "Koi Fish",
+    "price": 90,
+    "image": "../Products/Koi.png",
+    "description": "Horoscope sign or a Japanese Fish? - choose your own interpretation.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
   {
     "id": 6,
     "title": "Martini",
     "price": 100,
-    "image": "../Products/Martini.png"
+    "image": "../Products/Martini.png",
+    "description": "Tini Tiime.",
+    "height": "30cm",
+    "width": "20cm",
+    "technique": "Acrylic Paint on canvas"
   },
   {
     "id": 7,
     "title": "Phoenix",
     "price": 110,
-    "image": "../Products/Phoenix.png"
+    "image": "../Products/Phoenix.png",
+    "description": "Rise from the ashes & dance in the flames.",
+    "height": "90cm",
+    "width": "60cm",
+    "technique": "Acrylic Paint on canvas"
   },
-  { "id": 8, "title": "Ohrid", "price": 120, "image": "../Products/Ohrid.png" },
-  { "id": 9, "title": "Rose", "price": 130, "image": "../Products/Rose.png" },
-  { "id": 10, "title": "Snake", "price": 140, "image": "../Products/Snake.png" }
+  {
+    "id": 8,
+    "title": "Ohrid-Gradishte",
+    "price": 120,
+    "image": "../Products/Ohrid.png",
+    "description": "Gradishte - 04.06.2024-18:56.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+
+  {
+    "id": 9,
+    "title": "Rose",
+    "price": 130,
+    "image": "../Products/Rose.png",
+    "description": "Rose - thorny but conquers with its beauty.",
+    "height": "30cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 10,
+    "title": "Snake",
+    "price": 140,
+    "image": "../Products/Snake.png",
+    "description": "Snake - symbol of transformation and rebirth.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 11,
+    "title": "Deathly Hollows",
+    "price": 150,
+    "image": "../Products/Band.png",
+    "description": "Harry Potter - Deathly Hollows Symbol",
+    "height": "60cm",
+    "width": "40cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 12,
+    "title": "Heavenly Flowers",
+    "price": 150,
+    "image": "../Products/BlueFlower.png",
+    "description": "Heavenly Flowers - the beauty of the sky in touch with the flower garden",
+    "height": "60cm",
+    "width": "40cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 13,
+    "title": "Magical Blueberries",
+    "price": 150,
+    "image": "../Products/Blueberry.png",
+    "description": "Magical blueberries - symbolism for a magical sour and sweet taste in one place",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 14,
+    "title": "Boats",
+    "price": 150,
+    "image": "../Products/Boats.png",
+    "description": "Saraishte - Ohrid Lake",
+    "height": "60cm",
+    "width": "90cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 15,
+    "title": "Formula",
+    "price": 150,
+    "image": "../Products/Formula.png",
+    "description": "If you can dream it, you can do it- Enzo Ferrari",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 16,
+    "title": "Black Cat",
+    "price": 150,
+    "image": "../Products/Cats.png",
+    "description": "Cats- in their meowment.",
+    "height": "30cm",
+    "width": "20cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 17,
+    "title": "Magical Cherries",
+    "price": 150,
+    "image": "../Products/Cherry.png",
+    "description": "Cherry- be the cherry on top.",
+    "height": "30cm",
+    "width": "20cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 18,
+    "title": "Magical Cherries",
+    "price": 150,
+    "image": "../Products/CherryBlue.png",
+    "description": "Cherry- be the cherry on top.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 19,
+    "title": "Car Mirror",
+    "price": 150,
+    "image": "../Products/CarMirror.png",
+    "description": "Just look trough the window and see the world.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 20,
+    "title": "Heart",
+    "price": 150,
+    "image": "../Products/Heart.png",
+    "description": "Open your heart and let the love in.",
+    "height": "40cm",
+    "width": "40cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 21,
+    "title": "Hogwarts Houses",
+    "price": 150,
+    "image": "../Products/HP.png",
+    "description": "Get in an choose one.",
+    "height": "60cm",
+    "width": "40cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 22,
+    "title": "The Pearl",
+    "price": 150,
+    "image": "../Products/OhridCircle.png",
+    "description": "Ohrid- take a deep breath and relax.",
+    "height": "30cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 23,
+    "title": "Windows",
+    "price": 150,
+    "image": "../Products/Panorama.png",
+    "description": "Stories by the window.",
+    "height": "40cm",
+    "width": "20cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 24,
+    "title": "Winter Shenanigans",
+    "price": 150,
+    "image": "../Products/SnowmanGlassball.png",
+    "description": "Sweet winter pleasures.",
+    "height": "20cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 25,
+    "title": "Winter Shenanigans pt.2",
+    "price": 150,
+    "image": "../Products/SnowmanGlassball2.png",
+    "description": "Image a magical world inside a glassball.",
+    "height": "25cm",
+    "width": "25cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 26,
+    "title": "Porta's view- Ohrid",
+    "price": 150,
+    "image": "../Products/Sunset2.png",
+    "description": "Porta's view- Ohrid",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 27,
+    "title": "Two Faces",
+    "price": 150,
+    "image": "../Products/TwoFace.png",
+    "description": "Illusion or uoısnllı",
+    "height": "50cm",
+    "width": "50cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 28,
+    "title": "Wine",
+    "price": 150,
+    "image": "../Products/Wine.png",
+    "description": "In vino veritas.",
+    "height": "40cm",
+    "width": "25cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 29,
+    "title": "Woman",
+    "price": 150,
+    "image": "../Products/Afro.png",
+    "description": "The power of a women.",
+    "height": "50cm",
+    "width": "50cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 30,
+    "title": "Anatomy",
+    "price": 150,
+    "image": "../Products/Bones.png",
+    "description": "Mix of all spheres from nature.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 31,
+    "title": "Tullips",
+    "price": 150,
+    "image": "../Products/Tullips.png",
+    "description": "Best part of the Spring.",
+    "height": "30cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 32,
+    "title": "Poison Blueberry",
+    "price": 150,
+    "image": "../Products/DarkBlueberry.png",
+    "description": "Poison from the dark.",
+    "height": "40cm",
+    "width": "25cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 33,
+    "title": "Van Gogh",
+    "price": 150,
+    "image": "../Products/VanGogh.png",
+    "description": "Van Gogh + Johanes Vermeer = Fantasy",
+    "height": "10cm",
+    "width": "10cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 34,
+    "title": "Blue Eye",
+    "price": 150,
+    "image": "../Products/BlueEye.png",
+    "description": "Ocean in my Eye",
+    "height": "10cm",
+    "width": "10cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 35,
+    "title": "Panter",
+    "price": 150,
+    "image": "../Products/Panter.png",
+    "description": "Predator in the night.",
+    "height": "10cm",
+    "width": "10cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 36,
+    "title": "Deniz",
+    "price": 150,
+    "image": "../Products/Dog.png",
+    "description": "Deniz - the best friend. Memory for a lifetime.",
+    "height": "60cm",
+    "width": "50cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 37,
+    "title": "Maths",
+    "price": 150,
+    "image": "../Products/Math.png",
+    "description": "Mathematical art Beutie.",
+    "height": "50cm",
+    "width": "35cm",
+    "technique": "Acrylic Paint on canvas"
+  },
+  {
+    "id": 38,
+    "title": "Storm",
+    "price": 150,
+    "image": "../Products/Storm.png",
+    "description": "The Fear and the Beauty of the Storm.",
+    "height": "40cm",
+    "width": "30cm",
+    "technique": "Acrylic Paint on canvas"
+  }
 ]

@@ -2,10 +2,12 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Card, Row, Col, Button } from "antd";
 import ReactCardFlip from "react-card-flip";
 import { ToastContainer, toast } from 'react-toastify';
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Products = () => {
   const [isFlipped, setIsFlipped] = useState({});
+  const [cardHeights, setCardHeights] = useState({});
+  const cardRefs = useRef({}); // Store references to the cards
 
   const handleFlip = (productId) => {
     setIsFlipped((prevState) => ({
@@ -60,22 +62,34 @@ const Products = () => {
     toast.success(`${product.title} added to cart!`);
   };
 
+  useEffect(() => {
+    // After products are rendered, calculate the max height of the front side of each card
+    const heights = {};
+    products.forEach((product) => {
+      const frontCard = cardRefs.current[product.id]?.front;
+      if (frontCard) {
+        heights[product.id] = frontCard.clientHeight; // Store the height
+      }
+    });
+    setCardHeights(heights); // Store card heights in state
+  }, [products]);
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading products</div>;
 
   return (
-    <div className="container mx-auto py-20">
-      <Row gutter={[16, 16]} className="flex  items-center">
+    <div className="container mx-auto py-40">
+      <Row gutter={[16, 16]} justify={"center"} className="flex items-center">
         {products.map((product) => (
           <Col key={product.id} xs={22} sm={12} md={8} lg={8}>
-            {/* ReactCardFlip now ensures both sides have the same size */}
             <ReactCardFlip
               isFlipped={isFlipped[product.id] || false}
               flipDirection="horizontal"
             >
               {/* Front Side */}
               <Card
-                onClick={() => handleFlip(product.id)} // Flip specific card
+                ref={(el) => (cardRefs.current[product.id] = { ...cardRefs.current[product.id], front: el })}
+                onClick={() => handleFlip(product.id)}
                 className="product-card"
                 title={product.title}
                 cover={
@@ -85,28 +99,40 @@ const Products = () => {
                     alt={product.title}
                   />
                 }
-                style={{ width: "100%"}} // Ensure the card has consistent size
+                style={{ width: "100%" }}
               >
-                <p>Price: {product.price}</p>
-                <p>Description: {product.description || "No description"}</p>
-                {/* Add event.stopPropagation() in the onClick handler */}
-                <Button
-                  type="primary"
-                  onClick={(event) => addToCart(product, event)}
-                >
-                  Add to Cart
-                </Button>
+                <div className="product-card-content">
+                  <p>Price: {product.price}</p>
+                  <Button
+                    type="primary"
+                    onClick={(event) => addToCart(product, event)}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
               </Card>
 
               {/* Back Side */}
               <Card
-                key={product.id}
-                onClick={() => handleFlip(product.id)} // Flip back to front
+                ref={(el) => (cardRefs.current[product.id] = { ...cardRefs.current[product.id], back: el })}
+                onClick={() => handleFlip(product.id)}
                 className="product-card"
-                style={{ width: "100%"  }} 
+                title={product.title}
+                cover={
+                  <div className="px-4 text-center">
+                    <h1>{product.description}</h1>
+                  </div>
+                }
+                style={{
+                  width: "100%",
+                  minHeight: cardHeights[product.id] || "auto", // Ensure the back card has the same height as the front
+                }}
               >
-                <p>Back Side</p>
-                <p>{product.description}</p>
+                <div className="product-card-content">
+                
+                  <p>Width: {product.width}</p>
+                  <p>Height: {product.height}</p>
+                </div>
               </Card>
             </ReactCardFlip>
           </Col>

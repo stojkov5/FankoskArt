@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 
 const HeroSeciton = () => {
   return (
-    <div className="hero-section flex items-center justify-center  w-full h-screen bg-gray-500 ">
+    <div className="hero-section flex items-center justify-center  w-full h-screen ">
       <div className="hero-section__content py-20">
         <Row justify={"center"}>
           <Col span={12} className="flex justify-center items-center">

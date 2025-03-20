@@ -86,8 +86,8 @@ const Cart = () => {
   }
 
   return (
-    <div className="container mx-auto py-20">
-      <Row gutter={[16, 16]}>
+    <div className="container mx-auto py-40">
+      <Row gutter={[16, 16]} justify="center">
         {cartItems.map((product) => (
           <Col key={product.id} xs={22} sm={12} md={8} lg={8}>
             <Card
