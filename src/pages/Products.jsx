@@ -53,29 +53,33 @@ const Products = () => {
   return (
     <div className="container mx-auto py-40">
       <Row gutter={[16, 16]} justify={"center"} className="flex items-center">
-        {products.map((product) => (
-          <Col key={product.id} xs={24} sm={12} md={8} lg={8} xl={8}>
-            <div className="product-card bg-orange-500 product-card p-4 border rounded-lg shadow-md h-full flex flex-col justify-between">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="object-contain w-50 h-64 p-4"
-              />
-              <h3>{product.title}</h3>
-              <p>{product.description}</p>
-              <p>Height:{product.height}</p>
-              <p>Width: {product.width}</p>
-              <p>Technique: {product.technique}</p>
-              <p>Price: {product.price}</p>
-              <Button
-                type="primary"
-                onClick={(event) => addToCart(product, event)}
-              >
-                Add to Cart
-              </Button>
-            </div>
-          </Col>
-        ))}
+        {products.map(
+          (product) => (
+            console.log(product),
+            (
+              <Col key={product.id} xs={24} sm={12} md={8} lg={8} xl={8}>
+                <div className="product-card bg-rose-200 product-card p-4 border rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="object-contain w-full h-full p-4"
+                  />
+                  <h3>{product.title}</h3>
+                  <p>Height: {product.height}</p>
+                  <p>Width: {product.width}</p>
+
+                  <p>Price: {product.price}</p>
+                  <Button className="add-to-cart-btn"
+                    type="primary"
+                    onClick={(event) => addToCart(product, event)}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
+              </Col>
+            )
+          )
+        )}
       </Row>
       <ToastContainer position="top-center" theme="colored" />
     </div>

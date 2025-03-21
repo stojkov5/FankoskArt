@@ -30,7 +30,9 @@ body {
   align-items: center;
 }
 
-
+.add-to-cart-btn {
+  background-color: rosybrown !important;
+}
 
 
 .empty-cart {
