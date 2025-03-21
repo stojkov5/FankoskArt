@@ -80,15 +80,15 @@ body {
 
 .cart-counter {
   font-size: 10px;
-  width: 18px; /* Set a fixed width for consistency */
-  height: 18px; /* Set a fixed height for consistency */
+  width: 15px; 
+  height: 15px; 
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 0px; /* Adjust top position to fit the icon */
-  right: 0; /* Adjust right position to fit the icon */
-  transform: translate(50%, -50%); /* Center the icon */
+  top: 0px; 
+  right: 0; 
+ 
 
   background-color: red;
   color: white;
@@ -106,3 +106,4 @@ body {
     justify-items: center;
   }
 }
+
