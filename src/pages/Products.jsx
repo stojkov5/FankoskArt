@@ -3,9 +3,7 @@ import { Row, Col, Button } from "antd";
 
 import { ToastContainer, toast } from "react-toastify";
 
-
 const Products = () => {
-
   const queryClient = useQueryClient();
 
   const {
@@ -33,21 +31,19 @@ const Products = () => {
   });
 
   const addToCart = (product) => {
-    
-
     const updatedCart = [...cart];
     const cartProductIndex = updatedCart.findIndex(
       (item) => item.id === product.id
     );
 
     if (cartProductIndex >= 0) {
-      updatedCart[cartProductIndex].quantity += 1; 
+      updatedCart[cartProductIndex].quantity += 1;
     } else {
-      updatedCart.push({ ...product, quantity: 1 }); 
+      updatedCart.push({ ...product, quantity: 1 });
     }
 
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    queryClient.invalidateQueries("cart"); 
+    queryClient.invalidateQueries("cart");
     toast.success(`${product.title} added to cart!`);
   };
 
@@ -59,11 +55,15 @@ const Products = () => {
       <Row gutter={[16, 16]} justify={"center"} className="flex items-center">
         {products.map((product) => (
           <Col key={product.id} xs={24} sm={12} md={8} lg={8} xl={8}>
-            <div className="product-card">
-              <img src={product.image} alt={product.title} />
+            <div className="product-card bg-orange-500 product-card p-4 border rounded-lg shadow-md h-full flex flex-col justify-between">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="object-contain w-50 h-64 p-4"
+              />
               <h3>{product.title}</h3>
               <p>{product.description}</p>
-              <p>Height: {product.height}</p>
+              <p>Height:{product.height}</p>
               <p>Width: {product.width}</p>
               <p>Technique: {product.technique}</p>
               <p>Price: {product.price}</p>

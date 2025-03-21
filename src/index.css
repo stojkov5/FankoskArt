@@ -21,14 +21,6 @@ body {
   width: 30%;
 }
 
-.ant-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative !important;
-  height: 100%; /* Ensures both front and back take the full height */
-  background-color:#FAF4F0;
-}
 
 .product-card {
   height: 100%; /* Full height for each card */
@@ -38,27 +30,8 @@ body {
   align-items: center;
 }
 
-.product-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  width: 100%;
-  background-color:#FAF4F0;
-}
 
-.ant-card-cover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  background-color:#FAF4F0;
-}
 
-.product-image {
-  width: 80% !important;
-  max-height: 400px; /* Adjust this as needed */
-}
 
 .empty-cart {
   display: flex;
