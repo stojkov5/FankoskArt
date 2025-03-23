@@ -1,36 +1,49 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Row, Col } from "antd";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import { useQuery } from "@tanstack/react-query";
 import { FaShoppingCart } from "react-icons/fa";
+import { auth, db } from "/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 function Navbar() {
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+  const navRef = useRef();
+  const location = useLocation();
+  
   const { data: cart = [] } = useQuery({
-    queryKey: ["cart"],
-    queryFn: () => JSON.parse(localStorage.getItem("cart")) || [],
+    queryKey: ["cart", user?.uid],
+    queryFn: async () => {
+      if (!user) return [];
+      const cartRef = doc(db, "carts", user.uid);
+      const cartSnap = await getDoc(cartRef);
+      return cartSnap.exists() ? cartSnap.data().items : [];
+    },
     refetchOnWindowFocus: false,
   });
 
-
-
-  
-
   const cartCount = cart.length;
-  const navRef = useRef();
-  const location = useLocation();
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-  const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const isLandingPage = location.pathname === "/";
+
+  const showNavbar = () => navRef.current.classList.toggle("responsive_nav");
   const handleClick = () => {
     showNavbar();
     scrollToTop();
   };
 
-  const isLandingPage = location.pathname === "/";
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate("/");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
     <header>
@@ -49,55 +62,68 @@ function Navbar() {
 
             <NavLink
               onClick={handleClick}
-              className={
-                isLandingPage
-                  ? "nav-link active-link"
-                  : ({ isActive }) =>
-                      isActive ? "nav-link active-link" : "nav-link"
+              className={isLandingPage ? "nav-link active-link" : ({ isActive }) => 
+                isActive ? "nav-link active-link" : "nav-link"
               }
               to="/"
             >
               Home
             </NavLink>
+
             <NavLink
               onClick={handleClick}
-              className={
-                isLandingPage
-                  ? "nav-link active-link"
-                  : ({ isActive }) =>
-                      isActive ? "nav-link active-link" : "nav-link"
+              className={isLandingPage ? "nav-link active-link" : ({ isActive }) => 
+                isActive ? "nav-link active-link" : "nav-link"
               }
               to="/products"
             >
               Products
             </NavLink>
+
             <NavLink
               onClick={handleClick}
-              className={
-                isLandingPage
-                  ? "nav-link active-link"
-                  : ({ isActive }) =>
-                      isActive ? "nav-link active-link" : "nav-link"
+              className={isLandingPage ? "nav-link active-link" : ({ isActive }) => 
+                isActive ? "nav-link active-link" : "nav-link"
               }
               to="/contact"
             >
               Contact
             </NavLink>
-            <NavLink to="/cart" onClick={handleClick} className="nav-link relative">
-              <FaShoppingCart className="text-gray-700 hover:text-black" />
-              {cartCount > 0 && (
-                  <span className="cart-counter absolute  bg-red-500 text-white rounded-full  ">
+
+            <div className="flex items-center gap-4">
+              {user ? (
+                <>
+                  <span className="text-sm hidden md:block">
+                    Welcome, {user.displayName || user.email}
+                  </span>
+                  <button 
+                    onClick={handleLogout}
+                    className="nav-link hover:bg-red-500 hover:text-white px-4 py-2 rounded"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <NavLink to="/login" className="nav-link" onClick={handleClick}>
+                    Login
+                  </NavLink>
+                  <NavLink to="/register" className="nav-link" onClick={handleClick}>
+                    Register
+                  </NavLink>
+                </>
+              )}
+              <NavLink to="/cart" onClick={handleClick} className="nav-link relative">
+                <FaShoppingCart className="text-gray-700 hover:text-black" />
+                {cartCount > 0 && (
+                  <span className="cart-counter absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
                     {cartCount}
                   </span>
-              )}
-            </NavLink>
+                )}
+              </NavLink>
+            </div>
 
-           
-
-            <button
-              className="nav-btn nav-close-btn flex ms-auto"
-              onClick={handleClick}
-            >
+            <button className="nav-btn nav-close-btn flex ms-auto" onClick={handleClick}>
               <h1>Menu</h1> <FaTimes />
             </button>
           </nav>
