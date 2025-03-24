@@ -1,10 +1,6 @@
 import { Col, Row } from "antd";
 import { useNavigate } from "react-router-dom";
-import {
-  InstagramOutlined,
-  FacebookOutlined,
-  TwitterOutlined,
-} from "@ant-design/icons";
+
 import "../styles/HeroSection.css";
 
 const HeroSection = () => {
@@ -20,7 +16,7 @@ const HeroSection = () => {
             className="px-4 order-2 md:order-1 text-center md:text-left"
           >
             <div>
-              <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-rose-100 leading-tight animate-fadeInUp">
+              <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight animate-fadeInUp">
                 &quot;Unleash Your Creativity –<br />
                 Where Every Stroke
                 <br />
@@ -29,7 +25,7 @@ const HeroSection = () => {
               <div className="cta-buttons flex gap-4 justify-center md:justify-start">
                 <button
                   onClick={() => navigate("/products")}
-                  className="cta-button px-8 py-3 rounded-full bg-rose-200/90 hover:bg-rose-300 text-rose-100 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="cta-button px-8 py-3 rounded-full bg-rose-300 hover:bg-rose-400  text-rose-100 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Browse Collection
                 </button>
@@ -52,26 +48,7 @@ const HeroSection = () => {
             </div>
           </Col>
           <Col>
-            <div className="social-links fixed right-6 bottom-6 flex flex-col gap-4 z-50">
-              <a
-                href="#"
-                className="text-rose-200 hover:text-burgundy-800 transition-colors"
-              >
-                <InstagramOutlined className="text-2xl" />
-              </a>
-              <a
-                href="#"
-                className="text-rose-200 hover:text-burgundy-800 transition-colors"
-              >
-                <FacebookOutlined className="text-2xl" />
-              </a>
-              <a
-                href="#"
-                className="text-rose-200 hover:text-burgundy-800 transition-colors"
-              >
-                <TwitterOutlined className="text-2xl" />
-              </a>
-            </div>
+            
           </Col>
         </Row>
       </div>

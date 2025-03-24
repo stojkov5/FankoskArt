@@ -23,7 +23,9 @@ function Navbar() {
       const cartSnap = await getDoc(cartRef);
       return cartSnap.exists() ? cartSnap.data().items : [];
     },
-    refetchOnWindowFocus: false,
+    refetchOnMount: "always",
+    staleTime: 3000,
+    cacheTime: 5000,
   });
 
   const cartCount = cart.length;
@@ -106,8 +108,10 @@ function Navbar() {
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="nav-link hover:bg-red-500 hover:text-white px-4 py-2 rounded"
-                >
+                  className="nav-link logout"
+                  >
+                    
+                
                   Logout
                 </button>
               </>
@@ -128,9 +132,9 @@ function Navbar() {
             <NavLink
               to="/cart"
               onClick={handleClick}
-              className="nav-link relative"
+              className="cart-icon relative"
             >
-              <FaShoppingCart className="text-gray-700 hover:text-black" />
+              <FaShoppingCart  />
               {cartCount > 0 && (
                 <span className="cart-counter absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
                   {cartCount}

@@ -1,24 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --toastify-color-light: #fff5f5; /* Match your card background */
+  --toastify-color-dark: #b96b7f; /* Your burgundy color */
+  --toastify-color-info: #e8b4b8; /* Rose color */
+  --toastify-color-success: #a5d6a7; /* Complementary green */
+  --toastify-color-warning: #ffe082; /* Complementary yellow */
+  --toastify-color-error: #ef9a9a; /* Complementary red */
 
+  --toastify-text-color-light: #b96b7f; /* Burgundy text */
+  --toastify-text-color-dark: #fff5f5; /* Light text */
+
+  /* Custom glassmorphism effect */
+  --toastify-glass-bg: rgba(255, 255, 255, 0.65);
+  --toastify-glass-border: rgba(255, 215, 212, 0.3);
+}
+
+.Toastify__toast {
+ 
+  backdrop-filter: blur(10px);
+  background: var(--toastify-glass-bg) !important;
+  border: 2px solid var(--toastify-glass-border) !important;
+  box-shadow: 0 4px 20px rgba(185, 107, 127, 0.15) !important;
+  color: #b96b7f !important;
+}
+
+.Toastify__progress-bar {
+  background: #b96b7f !important; /* Burgundy progress bar */
+}
+
+/* Success toast specific styling */
+.Toastify__toast--success {
+  --toastify-color-progress-light: #a5d6a7;
+  border-left: 5px solid #81c784 !important;
+}
+
+/* Error toast specific styling */
+.Toastify__toast--error {
+  --toastify-color-progress-light: #ef9a9a;
+  border-left: 5px solid #e57373 !important;
+}
+
+/* Close button */
+.Toastify__close-button {
+  color: #b96b7f !important;
+  opacity: 0.8;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
 body {
-  
   background: linear-gradient(135deg, #ffd7d4, #e8b4b8, #d282a6, #b96b7f);
-  background-size: 400% 400%;
-  animation: gradientMove 15s linear infinite;
+  background-repeat: no-repeat;
 }
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 .container {
   width: 80%;
 }
@@ -34,20 +71,18 @@ body {
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.65);
-  
-    backdrop-filter: blur(7.849999904632568px);
+
+  backdrop-filter: blur(7.849999904632568px);
   border: 5px solid rgba(255, 215, 212, 0.3);
   box-shadow: 0 4px 20px rgba(185, 107, 127, 0.15);
-
 }
 .product-card:hover {
-  
   box-shadow: 0 8px 35px rgba(185, 107, 127, 0.3);
 }
 .product-info {
   color: #b96b7f;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 .product-details .detail-item {
@@ -62,10 +97,7 @@ body {
   display: inline-block;
   min-width: 100px;
 }
-.add-to-cart-btn {
-  background-color: rosybrown !important;
-  color: white !important;
-}
+
 
 .empty-cart {
   display: flex;
@@ -75,14 +107,19 @@ body {
 }
 
 .empty-cart-card {
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 2rem;
-  border: 2px solid green;
+  padding: 1.5rem 2rem;
+  
   border-radius: 24px;
-  background-color: tomato;
+  background: rgba(232, 180, 184, 0.3);
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
+  box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
+  border-color: rgba(255, 215, 212, 0.3);
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity, 1)) /* #fda4af */;
 }
 
 .cart-counter {
@@ -111,4 +148,20 @@ body {
   .product-container {
     justify-items: center;
   }
+}
+.featured-collection .product-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 212, 0.3);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.featured-collection .product-card:hover {
+  box-shadow: 0 8px 32px rgba(185, 107, 127, 0.15);
+  transform: translateY(-5px);
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
 }

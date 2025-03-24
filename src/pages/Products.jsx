@@ -1,7 +1,6 @@
-// src/pages/Products.jsx (updated)
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Row, Col, Button, Skeleton } from "antd";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Row, Col,  Skeleton } from "antd";
 import { ToastContainer, toast } from "react-toastify";
 import ProductDetailsModal from "../components/ProductDetailsModal";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -9,6 +8,7 @@ import { auth, db } from "/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const Products = () => {
+  const queryClient = useQueryClient();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [user] = useAuthState(auth);
@@ -21,7 +21,7 @@ const Products = () => {
     },
   });
 
-  const { data: cart = [] } = useQuery({
+  useQuery({
     queryKey: ["cart", user?.uid],
     queryFn: async () => {
       if (!user) return [];
@@ -48,7 +48,11 @@ const Products = () => {
     }
 
     const cartRef = doc(db, "carts", user.uid);
-    const updatedCart = [...cart];
+    
+    await queryClient.cancelQueries(['cart', user.uid]);
+    const previousCart = queryClient.getQueryData(['cart', user.uid]) || [];
+    
+    const updatedCart = [...previousCart];
     const existingItem = updatedCart.find((item) => item.id === product.id);
 
     if (existingItem) {
@@ -57,8 +61,17 @@ const Products = () => {
       updatedCart.push({ ...product, quantity: 1 });
     }
 
-    await setDoc(cartRef, { items: updatedCart });
-    toast.success(`${product.title} added to cart!`);
+    queryClient.setQueryData(['cart', user.uid], updatedCart);
+
+    try {
+      await setDoc(cartRef, { items: updatedCart });
+      toast.success(`${product.title} added to cart!`);
+    } catch {
+      queryClient.setQueryData(['cart', user.uid], previousCart);
+      toast.error("Failed to update cart");
+    }
+    
+    queryClient.invalidateQueries(['cart', user.uid]);
   };
 
   if (isLoading) return <Skeleton active paragraph={{ rows: 8 }} />;
@@ -75,25 +88,24 @@ const Products = () => {
                 className="object-contain md:w-52 h-full p-0"
               />
               <div className="text-center product-info">
-              <h3>{product.title}</h3>
-              <p>Price: ${product.price}</p>
-              <div className="flex flex-col gap-2">
-                <Button
-                  className="add-to-cart-btn"
-                  type="primary"
-                  onClick={() => addToCart(product)}
-                >
-                  Add to Cart
-                </Button>
-                <Button
-                  className="add-to-cart-btn"
-                  onClick={() => showProductDetails(product)}
-                >
-                  View Details
-                </Button>
+                <h3>{product.title}</h3>
+                <p>Price: ${product.price}</p>
+                <div className="flex flex-col gap-2">
+                  <button
+                    className="cta-button px-8 py-3 rounded-full bg-rose-300 hover:bg-rose-400  text-rose-100 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    
+                    onClick={() => addToCart(product)}
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    className="cta-button px-8 py-3 rounded-full bg-rose-300 hover:bg-rose-400  text-rose-100 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    onClick={() => showProductDetails(product)}
+                  >
+                    View Details
+                  </button>
+                </div>
               </div>
-              </div>
-              
             </div>
           </Col>
         ))}
@@ -105,7 +117,7 @@ const Products = () => {
         onClose={handleCloseModal}
       />
 
-      <ToastContainer position="top-right" theme="colored" />
+      <ToastContainer position="top-center" theme="colored" />
     </div>
   );
 };

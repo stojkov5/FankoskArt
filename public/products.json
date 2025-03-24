@@ -28,13 +28,15 @@
     "description": "Sailboat - we can't direct the wind, but we can adjust the sails.",
     "height": "80cm",
     "width": "40cm",
-    "technique": "Acrylic Paint on canvas"
+    "technique": "Acrylic Paint on canvas",
+    "featured": true
   },
   {
     "id": 4,
     "title": "HalfFace 4",
     "price": 80,
-    "image": "../Products/HalfFace.png"
+    "image": "../Products/HalfFace.png",
+    "featured": true
   },
   {
     "id": 5,
@@ -115,7 +117,8 @@
     "description": "Heavenly Flowers - the beauty of the sky in touch with the flower garden",
     "height": "60cm",
     "width": "40cm",
-    "technique": "Acrylic Paint on canvas"
+    "technique": "Acrylic Paint on canvas",
+    "featured": true
   },
   {
     "id": 13,
@@ -145,7 +148,8 @@
     "description": "If you can dream it, you can do it- Enzo Ferrari",
     "height": "40cm",
     "width": "30cm",
-    "technique": "Acrylic Paint on canvas"
+    "technique": "Acrylic Paint on canvas",
+    "featured": true
   },
   {
     "id": 16,

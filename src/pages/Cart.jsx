@@ -1,18 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button, Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { db } from "/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "/firebase";
 
 const Cart = () => {
+  const queryClient = useQueryClient();
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const { data: cartItems = [], refetch } = useQuery({
+  const { data: cartItems = [] } = useQuery({
     queryKey: ["cart", user?.uid],
     queryFn: async () => {
       if (!user) return [];
@@ -24,8 +24,19 @@ const Cart = () => {
 
   const updateCart = async (updatedCart) => {
     if (!user) return;
-    await setDoc(doc(db, "carts", user.uid), { items: updatedCart });
-    refetch();
+
+    await queryClient.cancelQueries(["cart", user.uid]);
+    const previousCart = queryClient.getQueryData(["cart", user.uid]) || [];
+    queryClient.setQueryData(["cart", user.uid], updatedCart);
+
+    try {
+      await setDoc(doc(db, "carts", user.uid), { items: updatedCart });
+    } catch {
+      queryClient.setQueryData(["cart", user.uid], previousCart);
+      toast.error("Failed to update cart");
+    }
+
+    queryClient.invalidateQueries(["cart", user.uid]);
   };
 
   const increaseQuantity = (productId) => {
@@ -71,9 +82,12 @@ const Cart = () => {
       <div className="empty-cart">
         <div className="empty-cart-card">
           <h2>Your cart is empty!</h2>
-          <Button type="primary" onClick={() => navigate("/products")}>
+          <button
+            className="cta-button px-8 py-3 rounded-full bg-rose-300 hover:bg-rose-400  text-rose-100 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            onClick={() => navigate("/products")}
+          >
             Shop Now
-          </Button>
+          </button>
         </div>
       </div>
     );
@@ -94,11 +108,18 @@ const Cart = () => {
               <p>Price: ${product.price}</p>
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
-                  <Button onClick={() => decreaseQuantity(product.id)}>-</Button>
+                  <Button onClick={() => decreaseQuantity(product.id)}>
+                    -
+                  </Button>
                   <span>{product.quantity}</span>
-                  <Button onClick={() => increaseQuantity(product.id)}>+</Button>
+                  <Button onClick={() => increaseQuantity(product.id)}>
+                    +
+                  </Button>
                 </div>
-                <Button className="text-red-500" onClick={() => removeItemFromCart(product.id)}>
+                <Button
+                  className="text-red-500"
+                  onClick={() => removeItemFromCart(product.id)}
+                >
                   X
                 </Button>
               </div>
@@ -111,20 +132,28 @@ const Cart = () => {
         <h2 className="text-xl font-bold mb-4">List of Products:</h2>
         {cartItems.map((item) => (
           <div key={item.id} className="flex justify-between items-center mb-2">
-            <span>{item.quantity} x {item.title}</span>
+            <span>
+              {item.quantity} x {item.title}
+            </span>
             <span>${(item.price * item.quantity).toFixed(2)}</span>
           </div>
         ))}
 
         <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-300">
           <h3 className="text-lg font-semibold">Total Price:</h3>
-          <span className="text-lg font-semibold">${totalPrice.toFixed(2)}</span>
-          <Button type="primary" className="go-to-checkout" onClick={goToCheckout}>
+          <span className="text-lg font-semibold">
+            ${totalPrice.toFixed(2)}
+          </span>
+          <Button
+            type="primary"
+            className="go-to-checkout"
+            onClick={goToCheckout}
+          >
             Go to Checkout
           </Button>
         </div>
       </div>
-      <ToastContainer className="pt-20" position="top-right" theme="colored" />
+      <ToastContainer position="top-center" theme="colored" />
     </div>
   );
 };

@@ -2,9 +2,6 @@
 
 header {
   width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 999;
 }
 
 /* Navbar Container */
@@ -18,10 +15,7 @@ header {
 /* Logo Styling */
 .navbar img {
   width: 30% !important;
-  
 }
-
-
 
 .nav-menu-logo.hidden {
   display: none;
@@ -29,32 +23,47 @@ header {
 
 /* Navigation Links */
 .nav-link {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0 1rem;
-  padding: 8px 20px;
+  padding: 0.2rem 1rem;
   text-decoration: none;
   border-radius: 30px;
-  color: #444444;
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
   transition: all 0.3s ease;
   background: transparent;
   border: 2px solid transparent;
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity, 1)) /* #fda4af */;
 }
 
 .nav-link:hover {
   background: rgba(232, 180, 184, 0.3);
-  color: #444444;
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
   box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
   border-color: rgba(255, 215, 212, 0.3);
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity, 1)) /* #fda4af */;
 }
 
 .active-link {
   background: rgba(232, 180, 184, 0.3);
-  color: #444444;
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
   box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity, 1)) /* #fda4af */;
 }
-
+.cart-icon {
+  font-size: 1.1rem;
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
+  padding: 0.8rem 0.8rem;
+  box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
+  background: rgba(253, 164, 175, 0.3);
+  border-radius: 50%;
+}
+.cart-icon:hover {
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
+  box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity, 1)) /* #fda4af */;
+}
 /* Navbar Button */
 header .nav-btn {
   padding: 5px;
@@ -62,10 +71,15 @@ header .nav-btn {
   background: transparent;
   border: none;
   outline: none;
-  color: black;
+  color:rgb(255 228 230 / var(--tw-text-opacity, 1));
   display: none;
   opacity: 0;
   font-size: 1.8rem;
+}
+.nav-btn h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+ 
 }
 
 /* Navbar Items */
@@ -115,7 +129,7 @@ nav {
     justify-content: center;
     gap: 1.5rem;
     opacity: 1;
-    background: rgba(230, 182, 227, 0.8);
+    background: linear-gradient(135deg, #ffd7d4, #e8b4b8, #d282a6, #b96b7f);
     backdrop-filter: blur(7.849999904632568px);
     z-index: 999;
     transition: 1s;
@@ -147,4 +161,16 @@ nav {
   .nav-link {
     font-size: 1.2rem;
   }
+  .logout {
+    width: 90%;
+  }
+.cart-icon {
+  width: unset;
+  font-size: 1.1rem;
+  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
+  padding: 0.8rem 0.8rem;
+  box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
+  background: rgba(253, 164, 175, 0.3);
+  border-radius: 50%;
+}
 }
