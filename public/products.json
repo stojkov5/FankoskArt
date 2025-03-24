@@ -7,7 +7,8 @@
     "description": "Arnold- Мотивациска слика на бодибилдер и цитат за успех.",
     "height": "40cm",
     "width": "30cm",
-    "technique": "Acrylic Paint on canvas"
+    "technique": "Acrylic Paint on canvas",
+    "soldOut": true
   },
 
   {
@@ -18,7 +19,8 @@
     "description": "Colorful Songbird - a vibrant image of a bird on a branch with vibrant colors and metallic details",
     "height": "60cm",
     "width": "40cm",
-    "technique": "Acrylic Paint on canvas"
+    "technique": "Acrylic Paint on canvas",
+    "soldOut": true
   },
   {
     "id": 3,
@@ -29,7 +31,8 @@
     "height": "80cm",
     "width": "40cm",
     "technique": "Acrylic Paint on canvas",
-    "featured": true
+    "featured": true,
+    "soldOut": true
   },
   {
     "id": 4,

@@ -23,9 +23,7 @@ function Navbar() {
       const cartSnap = await getDoc(cartRef);
       return cartSnap.exists() ? cartSnap.data().items : [];
     },
-    refetchOnMount: "always",
-    staleTime: 3000,
-    cacheTime: 5000,
+    refetchOnWindowFocus: false,
   });
 
   const cartCount = cart.length;
@@ -53,7 +51,7 @@ function Navbar() {
         <Col className="navbar" span={20}>
           <h3>
             <NavLink to="/">
-              <img className=" " src="./LOGO1.png" alt="Logo" />
+              <img className="w-40 " src="./LOGO1.png" alt="Logo" />
             </NavLink>
           </h3>
 
@@ -103,15 +101,10 @@ function Navbar() {
 
             {user ? (
               <>
-                <span className="text-sm hidden md:block">
-                  Welcome, {user.displayName || user.email}
-                </span>
                 <button
                   onClick={handleLogout}
-                  className="nav-link logout"
-                  >
-                    
-                
+                  className="nav-link active-link logout"
+                >
                   Logout
                 </button>
               </>
@@ -132,9 +125,9 @@ function Navbar() {
             <NavLink
               to="/cart"
               onClick={handleClick}
-              className="cart-icon relative"
+              className="nav-link relative cart-icon"
             >
-              <FaShoppingCart  />
+              <FaShoppingCart />
               {cartCount > 0 && (
                 <span className="cart-counter absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
                   {cartCount}

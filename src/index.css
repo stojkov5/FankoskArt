@@ -148,6 +148,9 @@ body {
   .product-container {
     justify-items: center;
   }
+  .logout {
+    width: 90%;
+  }
 }
 .featured-collection .product-card {
   background: rgba(255, 255, 255, 0.7);

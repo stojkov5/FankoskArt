@@ -53,7 +53,7 @@ header {
 }
 .cart-icon {
   font-size: 1.1rem;
-  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
+ 
   padding: 0.8rem 0.8rem;
   box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
   background: rgba(253, 164, 175, 0.3);
@@ -167,7 +167,7 @@ nav {
 .cart-icon {
   width: unset;
   font-size: 1.1rem;
-  color: rgb(255 228 230 / var(--tw-text-opacity, 1));
+  
   padding: 0.8rem 0.8rem;
   box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
   background: rgba(253, 164, 175, 0.3);
