@@ -17,8 +17,11 @@ header {
 
 /* Logo Styling */
 .navbar img {
-  height: 10%;
+  width: 30% !important;
+  
 }
+
+
 
 .nav-menu-logo.hidden {
   display: none;
@@ -26,32 +29,30 @@ header {
 
 /* Navigation Links */
 .nav-link {
-  color: var(--Ink-100, #fff);
-
-  /* Desktop/Body text/100/Regular */
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
   margin: 0 1rem;
-  padding: 8px 12px;
+  padding: 8px 20px;
   text-decoration: none;
-  border-radius: 23px;
+  border-radius: 30px;
+  color: #444444;
+  transition: all 0.3s ease;
   background: transparent;
-  color: black;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .nav-link:hover {
-  background: rgba(205, 14, 18, 0.53);
-  color: black;
+  background: rgba(232, 180, 184, 0.3);
+  color: #444444;
+  box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
+  border-color: rgba(255, 215, 212, 0.3);
 }
 
-/* Active Link Styling */
 .active-link {
-  background: rgba(205, 14, 18, 0.53);
+  background: rgba(232, 180, 184, 0.3);
+  color: #444444;
+  box-shadow: 0 4px 15px rgba(185, 107, 127, 0.1);
 }
 
 /* Navbar Button */

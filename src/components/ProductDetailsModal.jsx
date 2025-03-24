@@ -3,16 +3,9 @@ import { Modal, Row, Col, Typography, Image } from "antd";
 
 const { Title, Text, Paragraph } = Typography;
 
-
 const ProductDetailsModal = ({ product, visible, onClose }) => {
   return (
-    <Modal
-     
-      visible={visible}
-      onCancel={onClose}
-      footer={null}
-      width={800}
-    >
+    <Modal visible={visible} onCancel={onClose} footer={null} width={800}>
       <Row gutter={[24, 16]} justify={"center"}>
         <Col xs={24} md={12}>
           <Image

@@ -1,5 +1,5 @@
 // src/pages/Products.jsx (updated)
-import { useState } from 'react';
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Row, Col, Button, Skeleton } from "antd";
 import { ToastContainer, toast } from "react-toastify";
@@ -74,16 +74,26 @@ const Products = () => {
                 alt={product.title}
                 className="object-contain md:w-52 h-full p-0"
               />
+              <div className="text-center product-info">
               <h3>{product.title}</h3>
               <p>Price: ${product.price}</p>
               <div className="flex flex-col gap-2">
-                <Button className='add-to-cart-btn' type="primary" onClick={() => addToCart(product)}>
+                <Button
+                  className="add-to-cart-btn"
+                  type="primary"
+                  onClick={() => addToCart(product)}
+                >
                   Add to Cart
                 </Button>
-                <Button className='add-to-cart-btn' onClick={() => showProductDetails(product)}>
+                <Button
+                  className="add-to-cart-btn"
+                  onClick={() => showProductDetails(product)}
+                >
                   View Details
                 </Button>
               </div>
+              </div>
+              
             </div>
           </Col>
         ))}
