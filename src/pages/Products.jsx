@@ -83,10 +83,10 @@ const Products = () => {
     <div className="container mx-auto py-20">
       <div className="text-center mb-8">
         <h2 className="text-4xl text-white text-center font-bold">Products</h2>
-        <small className="text-center text-white">
+        <h3 className="text-center text-white">
           Note: You can order a painting similar to this one, with different
           size and color.
-        </small>
+        </h3>
       </div>
 
       <Row gutter={[16, 16]} justify="center" className="flex items-center">
@@ -105,7 +105,7 @@ const Products = () => {
               />
               <div className="text-center product-info">
                 <h3>{product.title}</h3>
-                <p>Price: ${product.price}</p>
+                <p>Price: {product.price}€</p>
                 <div className="flex flex-col gap-2">
                   <button
                     className={`cta-button px-8 py-3 rounded-full font-semibold transition-all duration-300 transform shadow-lg bg-rose-300 hover:bg-rose-400 text-rose-100 hover:scale-105 hover:shadow-xl"

@@ -7,7 +7,7 @@ const fetchFeaturedProducts = async () => {
   const response = await fetch("/products.json");
   const allProducts = await response.json();
   return allProducts
-    .filter((product) => product.featured) // or .slice(0, 4) if not using featured property
+    .filter((product) => product.featured) 
     .slice(0, 4);
 };
 
@@ -34,7 +34,7 @@ const FeaturedCollection = () => {
     <section className="featured-collection py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl text-white text-center mb-8 text-burgundy-800 font-bold">
-          Featured Collection
+          Newest Collection
         </h2>
 
         <Row gutter={[24, 24]} justify="center">
