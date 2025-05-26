@@ -8,6 +8,16 @@ const HeroSection = () => {
 
   return (
     <div className="hero-section relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/Video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="hero-content relative z-10 py-20 px-4">
         <Row justify="center" align="middle" className="gap-y-8 md:gap-y-0">
           <Col
@@ -47,9 +57,7 @@ const HeroSection = () => {
               <div className="gradient-overlay absolute inset-0 bg-gradient-to-br from-rose-200/20 to-burgundy-800/20 rounded-full mix-blend-multiply"></div>
             </div>
           </Col>
-          <Col>
-            
-          </Col>
+          <Col></Col>
         </Row>
       </div>
     </div>

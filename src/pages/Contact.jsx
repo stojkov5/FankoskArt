@@ -1,9 +1,11 @@
+
+import ContactUs from "../components/ContactUs";
 const Contact = () => {
-    return (
-        <div>
-            <h1>Contact</h1>
-        </div>
-    )
-}
+  return (
+    <div className="w-full h-screen flex items-center justify-center">
+      <ContactUs />
+    </div>
+  );
+};
 
 export default Contact;

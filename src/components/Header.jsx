@@ -10,10 +10,11 @@ import { doc, getDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 function Navbar() {
+  const location = useLocation();
+
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const navRef = useRef();
-  const location = useLocation();
 
   const { data: cart = [] } = useQuery({
     queryKey: ["cart", user?.uid],
@@ -46,7 +47,11 @@ function Navbar() {
   };
 
   return (
-    <header>
+    <header
+      className={`w-full${
+        isLandingPage ? "bg-transparent z-50 absolute top-0 left-0" : "bg-white "
+      }`}
+    >
       <Row justify={"center"}>
         <Col className="navbar" span={20}>
           <h3>
